@@ -1,0 +1,15 @@
+.is-over {
+  z-index: 100;
+}
+
+div.padd {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+aside.doc {
+  padding: 2rem 0.5rem;
+  background: #fafafa;
+  border-right: 1px solid #f0f0f0;
+  min-height: 80vh;
+}

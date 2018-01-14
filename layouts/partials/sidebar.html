@@ -1,0 +1,66 @@
+<div class="column is-one-quarter">
+  <aside class="menu-list doc">
+    <ul class="menu-list">
+{{- $currentPage := . }}
+{{- range .Site.Home.Sections.ByWeight}}
+  {{- template "first-level-menu" dict "this" . "currentPage" $currentPage }}
+{{- end}}
+    </ul>
+  </aside>
+</div>
+
+{{- define "first-level-menu" }}
+{{- $currentPage := .currentPage }}
+  {{- with .this}}
+
+    <a href="{{.URL}}"{{- if eq .URL $currentPage.URL }} class="is-active"{{ end -}}>{{ .Title }}</a>
+
+    {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+    {{- if ne $numberOfPages 0 }}
+
+      {{- .Scratch.Set "pages" .Pages }}
+      {{- if .Sections}}
+      {{- .Scratch.Set "pages" (.Pages | union .Sections) }}
+      {{- end}}
+      {{- $pages := (.Scratch.Get "pages") }}
+
+      {{- range $pages.ByWeight }}
+        {{- template "submenu" dict "this" . "currentPage" $currentPage }}
+      {{- end }}
+
+    {{- end}}
+
+  {{- end}}
+{{- end}}
+
+{{- define "submenu" }}
+{{- $currentPage := .currentPage }}
+  {{- with .this}}
+    {{- if .IsSection }}
+      <li>
+        <a href="{{.URL}}"{{- if eq .URL $currentPage.URL }} class="is-active"{{ end -}}>{{ .Title }}</a>
+
+        {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+
+        {{- if ne $numberOfPages 0 }}
+
+          {{- .Scratch.Set "pages" .Pages }}
+          {{- if .Sections}}
+          {{- .Scratch.Set "pages" (.Pages | union .Sections) }}
+          {{- end}}
+          {{- $pages := (.Scratch.Get "pages") }}
+          <ul>
+          {{- range $pages.ByWeight }}
+            {{- template "submenu" dict "this" . "currentPage" $currentPage }}
+          {{- end }}
+          </ul>
+
+        {{- end }}
+      </li>
+    {{- else }}
+      <li>
+        <a href="{{.URL}}" {{- if eq .URL $currentPage.URL }} class="is-active"{{ end -}}>{{ .Title }}</a>
+      </li>
+    {{- end}}
+  {{- end}}
+{{- end}}
