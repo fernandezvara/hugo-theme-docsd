@@ -2,7 +2,7 @@
   {{- with .Get "class" }} is-{{.}}{{end -}}
   ">
   {{- with .Get "header" }}<div class="message-header">
-    <p>{{.}}</p>
+    <p>{{ . | markdownify }}</p>
   </div>{{ else }}{{ end -}}
-  <div class="message-body">{{.Inner}}</div>
+  <div class="message-body">{{ .Inner | markdownify }}</div>
 </article>
