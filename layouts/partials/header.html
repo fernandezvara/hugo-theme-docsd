@@ -1,15 +1,17 @@
 <nav class="navbar has-shadow is-over" role="navigation" aria-label="main navigation">
   <div class="container">
     <div class="navbar-brand">
-      <a class="navbar-item" href="{{.Site.BaseURL}}">
-        <img src="{{.Site.Params.logo}}" alt="{{.Site.Params.logoalt}}">
+      <a class="navbar-item" href="{{ .Site.BaseURL }}">
+        <img
+          {{- $logo := .Site.Params.logo }}{{- with $logo }} src="{{ $logo | relURL }}"{{ else }} src="{{ "img/docsd.png" | relURL }}"{{ end -}}
+          {{- with .Site.Params.logoalt }} alt="{{ . }}"{{ end -}}>
       </a>
 
       <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="{{.Site.BaseURL}}">Home</a>
+        <a class="navbar-item" href="{{ .Site.BaseURL }}">Home</a>
         {{ range .Site.Menus.header }}
-        <a class="navbar-item" href="{{.URL}}">{{.Name}}</a>
+        <a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
         {{ end }}
       </div>
 

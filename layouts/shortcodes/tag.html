@@ -1,0 +1,5 @@
+{{- with .Get "href" }}<a {{else}}<span {{ end -}} class="tag
+  {{- with .Get "class" }} is-{{.}}{{end -}}
+  {{- with .Get "size" }} is-{{.}}{{end -}}
+  {{- with .Get "rounded" }} is-rounded{{ end -}}
+  "{{- with .Get "href" }} href="{{.}}"{{ end -}}>{{.Inner}}{{- with .Get "href" }}</a>{{else}}</span>{{ end -}}

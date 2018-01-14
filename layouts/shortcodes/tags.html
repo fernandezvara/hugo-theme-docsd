@@ -1,0 +1,11 @@
+<div class="tags has-addons">
+{{- with .Get "href1" }}<a {{else}}<span {{ end -}} class="tag
+  {{- with .Get "class1" }} is-{{.}}{{end -}}
+  {{- with .Get "size" }} is-{{.}}{{end -}}
+  "{{- with .Get "href1" }} href="{{.}}"{{ end -}}>{{- with .Get "text1" }}{{.}}{{else}}{{.Inner}}{{end}}{{- with .Get "href1" }}</a>{{else}}</span>{{ end -}}
+
+{{- with .Get "href2" }}<a {{else}}<span {{ end -}} class="tag
+  {{- with .Get "class2" }} is-{{.}}{{end -}}
+  {{- with .Get "size" }} is-{{.}}{{end -}}
+  "{{- with .Get "href2" }} href="{{.}}"{{ end -}}>{{- with .Get "text2" }}{{.}}{{else}}{{.Inner}}{{end}}{{- with .Get "href2" }}</a>{{else}}</span>{{ end -}}
+</div>

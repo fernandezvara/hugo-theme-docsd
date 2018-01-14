@@ -1,0 +1,8 @@
+<article class="message
+  {{- with .Get "class" }} is-{{.}}{{end -}}
+  ">
+  {{- with .Get "header" }}<div class="message-header">
+    <p>{{.}}</p>
+  </div>{{ else }}{{ end -}}
+  <div class="message-body">{{.Inner}}</div>
+</article>

@@ -1,0 +1,6 @@
+<span class="icon
+  {{- with .Get "class" }} has-text-{{.}}{{end}}
+  {{- with .Get "size" }} is-{{.}}{{end -}}
+  ">
+  <i class="fas fa-{{.Inner}}"></i>
+</span>

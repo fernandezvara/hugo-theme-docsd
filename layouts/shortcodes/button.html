@@ -1,0 +1,17 @@
+<a class="button
+  {{- with .Get "class" }} is-{{.}}{{end -}}
+  {{- with .Get "size" }} is-{{.}}{{end -}}
+  {{- with .Get "outlined" }} is-outlined{{ end -}}
+  {{- with .Get "inverted" }} is-inverted{{ end -}}
+  {{- with .Get "rounded" }} is-rounded{{ end -}}
+  "{{- with .Get "href" }} href="{{.}}"{{ end -}}>
+  {{- with .Get "iconleft" }}
+  <span class="icon">
+    <i class="fab fa-{{ . }}"></i>
+  </span>{{ end -}}
+  <span>{{.Inner}}</span>
+  {{- with .Get "iconright" }}
+  <span class="icon">
+    <i class="fab fa-{{ . }}"></i>
+  </span>{{ end -}}
+  </a>

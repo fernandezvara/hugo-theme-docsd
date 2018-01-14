@@ -12,9 +12,10 @@
 {{- define "first-level-menu" }}
 {{- $currentPage := .currentPage }}
   {{- with .this}}
-
+  <li>
     <a href="{{.URL}}"{{- if eq .URL $currentPage.URL }} class="is-active"{{ end -}}>{{ .Title }}</a>
-
+  </li>
+    
     {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
     {{- if ne $numberOfPages 0 }}
 
