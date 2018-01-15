@@ -26,8 +26,8 @@
         {{ end }}
         <div class="column">
           <div class="content padd">
-          {{ block "main" . }}
-          {{ end }}
+            {{ block "main" . }}
+            {{ end }}
           </div>
         </div>
       </div>
@@ -35,6 +35,7 @@
     {{ block "footer" . }}
     {{ end }}
     {{ partial "footer.html" . }}
+    {{ partial "addcss" . }}
     <script>
       hljs.initHighlightingOnLoad();
     </script>

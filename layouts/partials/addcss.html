@@ -1,0 +1,16 @@
+<style type:="text/css">
+  a {
+    color: {{ .Site.Params.linkactive | default "#fbbc00" }};
+  }
+  a.navbar-item.is-active, a.navbar-item:hover, a.navbar-link.is-active, a.navbar-link:hover {
+    background-color: {{ .Site.Params.linkactivebg | default "#f5f5f5" }};
+    color: {{ .Site.Params.linkactive | default "#fbbc00" }};
+  }
+  .menu-list a.is-active {
+    background-color: {{ .Site.Params.menuactivebg | default "#fbbc00" }};
+    color: {{ .Site.Params.menuactive | default "#fff" }};
+  }
+  .breadcrumb a {
+    color: {{ .Site.Params.linkactive | default "#fbbc00" }};
+  }
+</style>
