@@ -1,5 +1,5 @@
 <article class="message
-  {{- with .Get "class" }} is-{{.}}{{end -}}
+  {{- with .Get "class" }} is-{{.}}{{else}} is-info{{end -}}
   ">
   {{- with .Get "header" }}<div class="message-header">
     <p>{{ . | markdownify }}</p>
