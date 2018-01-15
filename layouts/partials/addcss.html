@@ -1,4 +1,13 @@
 <style type:="text/css">
+
+  body, button, input, select, textarea {
+    {{- if .Site.Params.fontfamily }}
+    font-family: {{ .Site.Params.fontfamily }};
+    {{ else }}
+    font-family: avenir,"Helvetica Neue","Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans",Helvetica,Arial,sans-serif;
+    {{ end -}}
+  }
+
   a {
     color: {{ .Site.Params.linkactive | default "#fbbc00" }};
   }

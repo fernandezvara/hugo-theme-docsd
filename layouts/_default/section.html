@@ -1,9 +1,11 @@
 {{ define "main" }}
   {{ partial "breadcrumb.html" . }}
+  {{- if ne .Params.hideTitle true }}
   <h1 class="title">{{.Title}}</h1>
   {{- if .Params.subtitle }}<h2 class="subtitle">{{.Params.subtitle}}</h2>{{ end -}}
+  {{ end -}}
+  {{- if ne .Params.hideIndex true }}
   <main>
-    {{ .Content }}
     <p>Pages in this section:</p>
     <ul class="contents">
       {{ range .Paginator.Pages }}
@@ -11,4 +13,6 @@
       {{ end }}
     </ul>
   </main>
+  {{ end -}}
+  {{ .Content }}
 {{ end }}
